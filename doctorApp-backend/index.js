@@ -6,44 +6,25 @@ var express = require("express");
 
 var cors = require("cors");
 const allowedOrigins = [
-  "https://doctor-app-rh82.vercel.app", // Add your frontend origin
-  "https://doctor-app-rh82.vercel.app/", // Add any other allowed origins
-];
-
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, OPTIONS"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
-    );
-    res.setHeader("Access-Control-Allow-Credentials", "true"); // Include credentials if needed
-  }
-  next();
-});
-
-// Handle preflight OPTIONS requests
-app.options("*", (req, res) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, OPTIONS"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
-    );
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-  }
-  res.sendStatus(200);
-});
+    'https://doctor-app-rh82.vercel.app',
+    'https://doctor-app-rh82.vercel.app',
+  ];
+  
+  // Configure CORS middleware
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+  }));
+  
+  // Handle preflight requests
+  app.options('*', cors());
 
 var dbConnect = require("./config/Mongodb.js");
 const connecttocloudinary = require("./config/cloudinary.js");
