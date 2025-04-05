@@ -21,13 +21,14 @@ dbConnect();
 connecttocloudinary();
 app.use(express.json());
 
-app.use(cors({
-    origin:"https://doctor-app-lac.vercel.app/",
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-    allowedHeaders: ['Content-Type', 'Authorization'],
+// app.use(cors({
+//     origin:"https://doctor-app-lac.vercel.app/",
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+//     allowedHeaders: ['Content-Type', 'Authorization'],
 
-}));
+// }));
+app.use(cors({ origin: '*' }));
 
 app.get('/', (req,res)=>{
     res.send('Working fine')
