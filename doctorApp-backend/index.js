@@ -3,17 +3,24 @@ const adminRoute =require('./routes/adminRoute.js')
 const doctorRoute =require('./routes/doctorRoute.js')
 const userRoute=require('./routes/userRoute.js')
 var express = require('express');
-
+ 
 var cors = require('cors');
 var dbConnect = require('./config/Mongodb.js');
 const connecttocloudinary=require("./config/cloudinary.js")
 
 const app= express()
+app.options('*', (req, res) => {
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.sendStatus(200);
+  });
 const port = process.env.PORT || 4000;
 
 dbConnect();
 connecttocloudinary();
 app.use(express.json());
+
 app.use(cors({
     origin:"https://doctor-fn0gsdilt-priyanka-katarias-projects.vercel.app/",
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
