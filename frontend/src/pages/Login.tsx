@@ -36,7 +36,11 @@ export default function Login() {
       const response = await axios.post("https://doctor-app-lac.vercel.app/api/user/login", {
         email,
         password,
-      });
+      },
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true // Include credentials if needed
+        });
       localStorage.setItem("authToken", response.data.token);
       setToken(response.data.token);
       navigate("/");
@@ -58,16 +62,16 @@ export default function Login() {
     <div className="flex items-start justify-center bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 px-4 py-4">
       {/* Error Popup */}
       {errorMessage && (
-  <div className="absolute top-[60px] left-3/4 transform -translate-x-1/2 bg-red-500 text-white px-8 py-4 rounded-lg shadow-lg z-50 flex flex-col items-center">
-    <p className="text-1x font-small">{errorMessage}</p>
-    <button
-      onClick={() => setErrorMessage(null)}
-      className="mt-3 bg-white text-red-500 px-4 py-2 rounded-full font-semibold hover:bg-red-100 transition duration-300 shadow-md"
-    >
-      Close
-    </button>
-  </div>
-)}
+        <div className="absolute top-[60px] left-3/4 transform -translate-x-1/2 bg-red-500 text-white px-8 py-4 rounded-lg shadow-lg z-50 flex flex-col items-center">
+          <p className="text-1x font-small">{errorMessage}</p>
+          <button
+            onClick={() => setErrorMessage(null)}
+            className="mt-3 bg-white text-red-500 px-4 py-2 rounded-full font-semibold hover:bg-red-100 transition duration-300 shadow-md"
+          >
+            Close
+          </button>
+        </div>
+      )}
 
 
       <form
