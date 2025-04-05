@@ -21,6 +21,9 @@ export default function Login() {
         email,
         password,
         phone,
+      }, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true // Include credentials if needed
       });
       localStorage.setItem("authToken", response.data.token);
       setToken(response.data.token);
