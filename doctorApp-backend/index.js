@@ -14,7 +14,13 @@ const port = process.env.PORT || 4000;
 dbConnect();
 connecttocloudinary();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin:["http://localhost:3000", "https://doctor-fn0gsdilt-priyanka-katarias-projects.vercel.app/"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    
+}));
 
 app.get('/', (req,res)=>{
     res.send('Working fine')
