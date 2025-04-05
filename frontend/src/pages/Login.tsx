@@ -16,7 +16,7 @@ export default function Login() {
   // Sign-up function
   const signUp = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/user/register", {
+      const response = await axios.post("https://doctor-app-lac.vercel.app/api/user/register", {
         name,
         email,
         password,
@@ -33,7 +33,7 @@ export default function Login() {
   // Sign-in function
   const signIn = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/user/login", {
+      const response = await axios.post("https://doctor-app-lac.vercel.app/api/user/login", {
         email,
         password,
       });

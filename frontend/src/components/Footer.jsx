@@ -7,7 +7,12 @@ export default function Footer() {
       <div className="flex flex-col sm:grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr] gap-14 mx-auto max-w-7xl px-6">
         {/* Logo and About Section */}
         <div>
-          <img className="mb-5 w-40" src={logo} alt="Logo" />
+        <p style={{ cursor: "pointer", // Makes it look clickable
+            fontSize: "24px", // Larger font size for prominence
+            fontWeight: "bold", // Bold text
+            transition: "color 0.3s ease",
+            
+            }} className="text-yellow-300">Doctor-App</p>
           <p className="w-full md:w-2/3 text-gray-100 leading-relaxed text-lg">
             Hi, I’m Priyanka Kataria, a B.Tech 3rd Year student in Energy
             Science & Engineering at IIT Delhi. Passionate about sustainable

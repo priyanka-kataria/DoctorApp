@@ -24,14 +24,14 @@ const Navbar = () => {
     const handleClickOutside = (event) => {
       if (!event.target.closest(".profile-container_navbar")) {
         setDropdownOpen(false);
-        console.log("drowpdw")
+        console.log("drowpdw");
       }
     };
-  
+
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
-  
+
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -52,10 +52,25 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <nav className={`navbar ${scrolled ? "shadow-sm" : ""} bg-gradient-to-b from-blue-500 via-blue-500 to-blue-500`}>
+    <nav
+      className={`navbar ${
+        scrolled ? "shadow-sm" : ""
+      } bg-gradient-to-b from-blue-500 via-blue-500 to-blue-500`}
+    >
       <div className="navbar-content">
-        <div onClick={() => navigate("/")} className="cursor-pointer">
-          <img src={logo} alt="Logo" className="logo" />
+        <div
+          onClick={() => navigate("/")}
+          style={{
+            cursor: "pointer", // Makes it look clickable
+            fontSize: "24px", // Larger font size for prominence
+            fontWeight: "bold", // Bold text
+            padding: "5px", // Adds some padding around the text
+            transition: "color 0.3s ease", // Smooth hover effect
+          }}
+           // Darker blue on hover
+          // Revert to original color
+        >
+          <p style={{ margin: 0, }} className="text-yellow-300">Doctor-App</p>
         </div>
 
         <button className="mobile-menu-btn" onClick={toggleMenu}>
@@ -133,7 +148,11 @@ const Navbar = () => {
               )}
             </div>
           ) : (
-            <button key={token} onClick={() => navigate("/login")} className="bg-white text-black px-4 py-2 rounded-full hover:scale-105 transition-all">
+            <button
+              key={token}
+              onClick={() => navigate("/login")}
+              className="bg-white text-black px-4 py-2 rounded-full hover:scale-105 transition-all"
+            >
               Create Account
             </button> // Key forces re-render
           )}

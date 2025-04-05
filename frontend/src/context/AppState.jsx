@@ -29,7 +29,7 @@ const AppState = (props) => {
         console.log(currentToken, "Token from frontend");
 
         const response = await axios.post(
-          "http://localhost:8000/api/user/getuser",
+          "https://doctor-app-lac.vercel.app/api/user/getuser",
           {},
           {
             headers: {
