@@ -20,15 +20,24 @@ const port = process.env.PORT || 4000;
 dbConnect();
 connecttocloudinary();
 app.use(express.json());
-
-// app.use(cors({
-//     origin:"https://doctor-app-lac.vercel.app/",
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-
-// }));
-app.use(cors({ origin: '*' }));
+const allowedOrigins = [
+    'https://doctor-app-rh82.vercel.app',
+    'https://doctor-app-lac.vercel.app'
+  ];
+  
+// Configure CORS
+app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 
 app.get('/', (req,res)=>{
     res.send('Working fine')
