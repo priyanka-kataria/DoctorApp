@@ -1,53 +1,69 @@
-require('dotenv').config();
-const adminRoute =require('./routes/adminRoute.js')
-const doctorRoute =require('./routes/doctorRoute.js')
-const userRoute=require('./routes/userRoute.js')
-var express = require('express');
- 
-var cors = require('cors');
-var dbConnect = require('./config/Mongodb.js');
-const connecttocloudinary=require("./config/cloudinary.js")
+require("dotenv").config();
+const adminRoute = require("./routes/adminRoute.js");
+const doctorRoute = require("./routes/doctorRoute.js");
+const userRoute = require("./routes/userRoute.js");
+var express = require("express");
 
-const app= express()
-app.options('*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', req.headers.origin);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.sendStatus(200);
-  });
+var cors = require("cors");
+const allowedOrigins = [
+  "https://doctor-app-rh82.vercel.app", // Add your frontend origin
+  "https://doctor-app-rh82.vercel.app/", // Add any other allowed origins
+];
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
+    res.setHeader("Access-Control-Allow-Credentials", "true"); // Include credentials if needed
+  }
+  next();
+});
+
+// Handle preflight OPTIONS requests
+app.options("*", (req, res) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization"
+    );
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+  }
+  res.sendStatus(200);
+});
+
+var dbConnect = require("./config/Mongodb.js");
+const connecttocloudinary = require("./config/cloudinary.js");
+
+const app = express();
+
 const port = process.env.PORT || 4000;
 
 dbConnect();
 connecttocloudinary();
 app.use(express.json());
-const allowedOrigins = [
-    'https://doctor-app-rh82.vercel.app',
-    'https://doctor-app-lac.vercel.app'
-  ];
-  
-// Configure CORS
-app.use(cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization']
-  }));
 
-app.get('/', (req,res)=>{
-    res.send('Working fine')
-})
+app.get("/", (req, res) => {
+  res.send("Working fine");
+});
 
-app.use('/api/admin',adminRoute)
-app.use('/api/doctor',doctorRoute)
-app.use('/api/user', userRoute)
+app.use("/api/admin", adminRoute);
+app.use("/api/doctor", doctorRoute);
+app.use("/api/user", userRoute);
 
-app.listen(port, ()=>{
-    console.log("Server started", port);
-
-})
+app.listen(port, () => {
+  console.log("Server started", port);
+});
