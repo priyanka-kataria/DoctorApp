@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose =require( "mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
     address: { type: String },
-    genger: { type: String, default: "Not selected" },
+    gender: { type: String, default: "Not selected" },
     dob: { type: String, default: "Not selected" },
     phone: { type: String, default: "0000000000" },
   },
@@ -34,6 +34,6 @@ userSchema.statics.hashPassword = async function (password) {
   return await bcrypt.hash(password, 10);
 };
 
-const userModel = mongoose.models.user || mongoose.model("user", userSchema);
+const userModel = mongoose.models.user || mongoose.model("patient", userSchema);
 
 module.exports = userModel;

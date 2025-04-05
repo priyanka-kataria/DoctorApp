@@ -22,10 +22,6 @@ module.exports.AddDoctor = async (req, res) => {
     address,
   } = req.body;
 
-  // if (!req.file) {
-  //   return res.status(400).send("Image file is required");
-  // }
-
   try {
     let doctor = await DoctorModel.findOne({ email });
     if (doctor) {
@@ -62,7 +58,6 @@ module.exports.AddDoctor = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      // image: imageUrl,
       speciality,
       degree,
       experience,
@@ -70,6 +65,7 @@ module.exports.AddDoctor = async (req, res) => {
       available,
       fees,
       address,
+
     });
 
     // Generate token

@@ -19,7 +19,7 @@ const protect = async (req, res, next) => {
       if (decoded.email !== process.env.ADMIN_EMAIL) {
         return res.status(401).json({ message: "Not authorized, invalid token" });
       }
-
+      
       // Add the decoded data to the request object for further use
       req.user = decoded;
 
