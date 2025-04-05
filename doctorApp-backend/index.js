@@ -5,6 +5,7 @@ const userRoute = require("./routes/userRoute.js");
 var express = require("express");
 
 var cors = require("cors");
+const app = express();
 const allowedOrigins = [
     'https://doctor-app-rh82.vercel.app',
     'https://doctor-app-rh82.vercel.app',
@@ -29,7 +30,6 @@ const allowedOrigins = [
 var dbConnect = require("./config/Mongodb.js");
 const connecttocloudinary = require("./config/cloudinary.js");
 
-const app = express();
 
 const port = process.env.PORT || 4000;
 
