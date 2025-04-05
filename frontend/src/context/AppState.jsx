@@ -29,7 +29,7 @@ const AppState = (props) => {
         console.log(currentToken, "Token from frontend");
 
         const response = await axios.post(
-          "https://doctor-app-lac.vercel.app/api/user/getuser",
+          "https://doctor-app-blush-sigma.vercel.app/api/user/getuser",
           {},
           {
             headers: {
