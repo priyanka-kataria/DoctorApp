@@ -14,10 +14,8 @@ export default function Footer() {
             
             }} className="text-yellow-300">Doctor-App</p>
           <p className="w-full md:w-2/3 text-gray-100 leading-relaxed text-lg">
-            Hi, I’m Priyanka Kataria, a B.Tech 3rd Year student in Energy
-            Science & Engineering at IIT Delhi. Passionate about sustainable
-            energy solutions, I am open to collaboration opportunities. Feel
-            free to connect!
+          DoctorApp is a smart and user-friendly healthcare platform designed to make medical support accessible to everyone. Patients can search for doctors, book appointments, consult online through video or chat, and access their medical reports in one place.
+The platform reduces waiting time, improves communication between doctors and patients, and provides a smooth and secure healthcare experience.
           </p>
         </div>
 
