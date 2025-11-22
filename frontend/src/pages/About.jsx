@@ -20,23 +20,22 @@ export default function About() {
           alt="About Us"
         />
         {/* Text Section */}
-        <div className="flex flex-col justify-center gap-6 md:w-2/4 text-lg text-gray-100 leading-relaxed">
-          <p>
-            Welcome to Prescripto, your trusted partner in managing your
-            healthcare needs conveniently and effectively.
-          </p>
-          <p>
-            Prescripto is committed to excellence in healthcare technology. We
-            continuously strive to provide you with the best possible
-            experience.
-          </p>
-          <b className="text-white text-xl">Our Vision</b>
-          <p>
-            Our vision at Prescripto is to create a seamless healthcare
-            experience for everyone.
-          </p>
-        </div>
-      </div>
+      <div className="flex flex-col justify-center gap-6 md:w-2/4 text-lg text-gray-100 leading-relaxed">
+  <p>
+    Welcome to the Healthcare Services Portal — your trusted companion for managing healthcare
+    needs with ease, convenience, and reliability.
+  </p>
+  <p>
+    We are committed to delivering excellence in healthcare technology, ensuring a smooth and
+    efficient experience for every user.
+  </p>
+  <b className="text-white text-xl">Our Vision</b>
+  <p>
+    To build a seamless, integrated healthcare experience that empowers patients and doctors
+    alike.
+  </p>
+</div>
+
 
       {/* Why Choose Us Section */}
       <div className="text-center text-3xl sm:text-4xl font-bold text-white my-10">
