@@ -63,7 +63,7 @@ export default function About() {
             area.
           </p>
         </div>
-
+      </div>
         {/* Feature 3 */}
         <div className="border px-8 md:px-16 py-8 sm:py-16 flex flex-col gap-5 text-lg bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-lg shadow-lg hover:scale-[1.05] transition-transform duration-300 text-white cursor-pointer">
           <b>Personalization:</b>
