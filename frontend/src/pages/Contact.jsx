@@ -24,7 +24,7 @@ export default function Contact() {
           <p className="text-xl md:text-2xl font-bold text-gray-800">MY DETAILS</p>
           <p className="text-base md:text-lg text-gray-700 leading-relaxed">
             Priyanka Kataria <br />
-            B.Tech 3rd Year, Energy Science & Engineering <br />
+            B.Tech Final Year Student, Energy Science and Engineering <br />
             Indian Institute of Technology (IIT) Delhi
           </p>
           <p className="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -37,7 +37,8 @@ export default function Contact() {
             Email: priyankaiitd22@gmail.com
           </p>
           <p className="text-sm md:text-base text-gray-600 italic">
-            Passionate about sustainable energy solutions and open to collaboration opportunities. Feel free to reach out!
+           I am a dedicated technologist with a passion for full-stack development. I enjoy creating meaningful digital experiences
+  and am always open to exciting collaborations and opportunities.
           </p>
           {/* Button with external link */}
           <a
