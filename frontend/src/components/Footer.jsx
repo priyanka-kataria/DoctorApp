@@ -12,7 +12,7 @@ export default function Footer() {
             fontWeight: "bold", // Bold text
             transition: "color 0.3s ease",
             
-            }} className="text-yellow-300">Doctor-App</p>
+            }} className="text-yellow-300">Healthcare Services Portal</p>
           <p className="w-full md:w-2/3 text-gray-100 leading-relaxed text-lg">
           DoctorApp is a smart and user-friendly healthcare platform designed to make medical support accessible to everyone. Patients can search for doctors, book appointments, consult online through video or chat, and access their medical reports in one place.
 The platform reduces waiting time, improves communication between doctors and patients, and provides a smooth and secure healthcare experience.
