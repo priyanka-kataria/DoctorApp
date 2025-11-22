@@ -70,7 +70,7 @@ const Navbar = () => {
            // Darker blue on hover
           // Revert to original color
         >
-          <p style={{ margin: 0, }} className="text-yellow-300">Doctor-App</p>
+          <p style={{ margin: 0, }} className="text-yellow-300">Healthcare Services Portal</p>
         </div>
 
         <button className="mobile-menu-btn" onClick={toggleMenu}>
