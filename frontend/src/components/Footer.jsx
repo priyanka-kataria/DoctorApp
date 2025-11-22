@@ -14,7 +14,7 @@ export default function Footer() {
             
             }} className="text-yellow-300">Healthcare Services Portal</p>
           <p className="w-full md:w-2/3 text-gray-100 leading-relaxed text-lg">
-          DoctorApp is a smart and user-friendly healthcare platform designed to make medical support accessible to everyone. Patients can search for doctors, book appointments, consult online through video or chat, and access their medical reports in one place.
+          Healthcare Services Portal is a smart and user-friendly healthcare platform designed to make medical support accessible to everyone. Patients can search for doctors, book appointments, consult online through video or chat, and access their medical reports in one place.
 The platform reduces waiting time, improves communication between doctors and patients, and provides a smooth and secure healthcare experience.
           </p>
         </div>
